@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>GeekGames</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="css/modern-business.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/RestApi.js"></script>
+        <script src="js/util.js"></script>
+        <script src="js/PanelConsolasDashboard.js"></script>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+    </head>
+
+    <body style="background-image: url(Imagenes/fondo.jpg); background-attachment: fixed; background-position: center; position: relative">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">GeekGames</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="productos.html">Productos</a>
+                        </li>
+                        <li><a href="carrito.html">Carrito</a></li>
+                        <li data-not-logged-only>
+                            <a href="login.html">Login</a>
+                        </li>
+                        <li data-logged-only>
+                            <a href="logout.html">Cerrar Sesión</a>
+                        </li>
+                        <li class="dropdown" data-admin-only>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Panel<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="paneljuegos.html">Juegos</a></li>
+                                <li><a href="panelconsolas.html">Consolas</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+        <div class="container" style="width: 100%; background: rgba(0, 0, 0, 0.4); height: 100%;">
+
+            <h1>Consolas</h1>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalCrear">
+                Crear Nuevo
+            </button>
+
+
+
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Precio
+                        </th>
+                        <th>
+                            Foto
+                        </th>
+                        <th>
+                            Acciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="consolas">
+
+                </tbody>
+            </table>
+
+            <!-- Modal para crear -->
+            <div class="modal fade" id="ModalCrear" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Crear nueva consola</h4>
+                        </div>
+                        <div class="modal-body">
+                            <label >Nombre:</label>
+                            <input type="text" class="form-control" id="nombre">
+                            <label >Precio:</label>
+                            <input type="number" class="form-control" id="precio">
+                            <label >Foto:</label>
+                            <input type="file" id="fileConsolas" for="imagenConsola" accept="image/jpeg">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="saveConsola">Guardar</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" id="cerrar">Cerrar</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal para editar -->
+
+            <div class="modal fade" id="ModalEditar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Editar consola</h4>
+                        </div>
+                        <div class="modal-body">
+                            <label >Nombre:</label>
+                            <input type="hidden" class="form-control" id="id_consola">
+                            <input type="text" class="form-control" id="editar_nombre">
+                            <label >Precio:</label>
+                            <input type="number" class="form-control" id="editar_precio">
+                            <label >Foto Actual:</label>
+                            <div id="fotoConsolaEditar"></div><!--<img id="fotoConsolaEditar">-->
+                            <input type="file" id="fileConsolasEditar" for="imagenConsola" accept="image/jpeg">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="editarConsola">Guardar</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" id="cerrarEditar">Cerrar</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer style="background-color: black; padding: 3%; margin: 0;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6" style="text-align: center"> © GeekGames 2017</div>
+                    <div class="col-xs-12 col-md-6"></div>
+                </div>
+            </div>
+        </footer>	
+    </body>
+</html>
