@@ -57,7 +57,7 @@ function Editar(id){
         $("#editar_nombre").value = juegos.nombre;
         $("#editar_precio").value = juegos.precio;
         $("[data-consola-select]").value = juegos.consolas_id.nombre;
-
+        
     })
 }   
 
@@ -110,25 +110,25 @@ function editarProducto(){
         }else{
             getBase64($("#fileJuegosEditar").files[0])
                 .then((b64) => {
-                const juegos = {
-                    "id" : $("#id_juego").value,
-                    "nombre" : $("#editar_nombre").value,
-                    "precio" : $("#editar_precio").value,
-                    "consolas_id" : $("#consolaSelectEditar").value,
-                    "imagen" : b64
-                }
+                    const juegos = {
+                        "id" : $("#id_juego").value,
+                        "nombre" : $("#editar_nombre").value,
+                        "precio" : $("#editar_precio").value,
+                        "consolas_id" : $("#consolaSelectEditar").value,
+                        "imagen" : b64
+                    }
 
-                RestApi.put("/api/juegos", juegos)
-                    .then((msj)=>{
-                    console.log('El producto se edito con éxito')
-                    $("#cerrarEditar").click();
-                    abrirPanel();
-                })
-                    .catch((err)=>{
-                    console.error(err)
-                })
+                    RestApi.put("/api/juegos", juegos)
+                        .then((msj)=>{
+                        console.log('El producto se edito con éxito')
+                        $("#cerrarEditar").click();
+                        abrirPanel();
+                    })
+                        .catch((err)=>{
+                        console.error(err)
+                    })
 
-            })
+                })
 
         }
     })

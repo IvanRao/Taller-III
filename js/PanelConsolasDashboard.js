@@ -49,22 +49,12 @@ function crearConsola(){
 function Editar(id){
     $("#id_consola").value = id;
 
-    const div = $("#fotoConsolaEditar");
-    const img = document.createElement("img");
-
-
     RestApi.get("/api/consolas/" + $("#id_consola").value)
         .then((consolas)=>{
         $("#editar_nombre").value = consolas.nombre;
         $("#editar_precio").value = consolas.precio;
-
-        img.setAttribute("src","api/fileConsolas/" + consolas.id);
-        img.setAttribute("class", "img-responsive");
-        img.setAttribute("style", "height: 100px");
-
-
-        div.appendChild(img)
-
+        $("#fileConsolasEditar").filename = consolas.id;
+        
     })
 }   
 
@@ -115,24 +105,24 @@ function editarProducto(){
         }else{
             getBase64($("#fileConsolasEditar").files[0])
                 .then((b64) => {
-                const consolas = {
-                    "id" : $("#id_consola").value,
-                    "nombre" : $("#editar_nombre").value,
-                    "precio" : $("#editar_precio").value,
-                    "imagenConsola" : b64
-                }
+                    const consolas = {
+                        "id" : $("#id_consola").value,
+                        "nombre" : $("#editar_nombre").value,
+                        "precio" : $("#editar_precio").value,
+                        "imagenConsola" : b64
+                    }
 
-                RestApi.put("/api/consolas", consolas)
-                    .then((msj)=>{
-                    console.log('El producto se edito con éxito')
-                    $("#cerrarEditar").click();
-                    abrirPanel();
-                })
-                    .catch((err)=>{
-                    console.error(err)
-                })
+                    RestApi.put("/api/consolas", consolas)
+                        .then((msj)=>{
+                        console.log('El producto se edito con éxito')
+                        $("#cerrarEditar").click();
+                        abrirPanel();
+                    })
+                        .catch((err)=>{
+                        console.error(err)
+                    })
 
-            })
+                })
 
         }
     })

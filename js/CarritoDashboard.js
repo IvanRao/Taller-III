@@ -19,6 +19,7 @@ function getCart(){
     }
 }
 
+
 function DeleteFromCart(pos){
     let currentCart = getCart()
     currentCart.splice(pos,1)
@@ -34,8 +35,6 @@ function createRow(product, posicion){
     const td3 = document.createElement("td")
 
     const deleteProduct = document.createElement("button")
-    deleteProduct.setAttribute("type", "button")
-    deleteProduct.setAttribute("class", "btn btn-danger")
     deleteProduct.innerText = "Eliminar del carrito"
     deleteProduct.addEventListener("click",function(){
         DeleteFromCart(posicion)
@@ -51,25 +50,14 @@ function createRow(product, posicion){
     return tr
 }
 
-function mostrarTotal(){
-    const total = getCart().map((p)=>p.precio).reduce((p1,p2)=>parseInt(p1)+parseInt(p2));
-    
-    const mostrar = $("#mostrarTotal")
-    
-    mostrar.innerText = "TOTAL: " + total
-}
-
-
-
 function crearCarrito(){
 
     const tbodyCart = $("#cart")
     $_removeChilds(tbodyCart);
     var posicion = 0
     getCart()
-    
         .forEach((prod)=>{
-        mostrarTotal()
+
         tbodyCart.appendChild(createRow(prod, posicion))
         posicion++;
     })
@@ -78,5 +66,5 @@ function crearCarrito(){
 window.addEventListener("load",function (){
     crearCarrito();
     getCart();
-    mostrarTotal();
+    createRow();
 })

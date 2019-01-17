@@ -3,7 +3,7 @@
 
 window.addEventListener("load",function (){
     crearConsola();
-
+    
     function addToCart (prod){
         const cart = localStorage.cart
         if(!cart){
@@ -13,11 +13,10 @@ window.addEventListener("load",function (){
             const cartObj = JSON.parse(cart)
             cartObj.push(prod)
             localStorage.cart = JSON.stringify(cartObj)
-                
         }
 
     }
-
+    
     function createRow(consolas){
 
         const columna = document.createElement("div")

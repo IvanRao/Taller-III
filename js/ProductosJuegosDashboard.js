@@ -37,7 +37,7 @@ window.addEventListener("load",function (){
         img.setAttribute("src","api/file/" + juegos.id);
         img.setAttribute("class", "card-img-top");
         img.setAttribute("alt", juegos.nombre);
-        img.setAttribute("style", "width:100%");
+        img.setAttribute("style", "width:80%");
         img.setAttribute("id", "imagenJuego");
 
         columna.setAttribute("class", "col-md-4")
@@ -46,10 +46,10 @@ window.addEventListener("load",function (){
         titulo.innerText = juegos.nombre
 
         card.setAttribute("class", "panel panel-default")
-        card.setAttribute("style", "width: auto")
+        card.setAttribute("style", "width: 80%")
 
         imagen.appendChild(img)
-        imagen.setAttribute("style", "height: 540px")
+        imagen.setAttribute("style", "height: 320px")
 
         cuerpo.setAttribute("class", "col-lg-12")
 

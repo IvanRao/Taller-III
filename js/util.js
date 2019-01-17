@@ -30,7 +30,7 @@ function $(e){
 Busca varios elementos por CSS selector
 */
 function $$(e){
-    return document.querySelectorAll(e)
+    return $_elm(document.querySelectorAll(e))
 }
 
 /**
