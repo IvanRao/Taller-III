@@ -37,7 +37,7 @@ window.addEventListener("load",function (){
         img.setAttribute("src","api/file/" + juegos.id);
         img.setAttribute("class", "card-img-top");
         img.setAttribute("alt", juegos.nombre);
-        img.setAttribute("style", "width:80%");
+        img.setAttribute("style", "width:98%");
         img.setAttribute("id", "imagenJuego");
 
         columna.setAttribute("class", "col-md-4")
@@ -46,12 +46,13 @@ window.addEventListener("load",function (){
         titulo.innerText = juegos.nombre
 
         card.setAttribute("class", "panel panel-default")
-        card.setAttribute("style", "width: 80%")
+        card.setAttribute("style", "width: 63%")
 
         imagen.appendChild(img)
         imagen.setAttribute("style", "height: 320px")
 
         cuerpo.setAttribute("class", "col-lg-12")
+        cuerpo.setAttribute("style", "padding: 0")
 
         precio.setAttribute("class", "card-text")
         precio.innerText = "$" + juegos.precio

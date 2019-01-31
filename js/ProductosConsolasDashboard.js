@@ -38,7 +38,7 @@ window.addEventListener("load",function (){
         img.setAttribute("src","api/fileConsolas/" + consolas.id);
         img.setAttribute("class", "card-img-top");
         img.setAttribute("alt", consolas.nombre);
-        img.setAttribute("style", "width:100%");
+        img.setAttribute("style", "width:99%");
         img.setAttribute("id", "imagenConsola");
 
         columna.setAttribute("class", "col-md-4")

@@ -35,6 +35,8 @@ function createRow(product, posicion){
     const td3 = document.createElement("td")
 
     const deleteProduct = document.createElement("button")
+    deleteProduct.setAttribute("type", "button")
+    deleteProduct.setAttribute("class", "btn btn-danger")
     deleteProduct.innerText = "Eliminar del carrito"
     deleteProduct.addEventListener("click",function(){
         DeleteFromCart(posicion)
