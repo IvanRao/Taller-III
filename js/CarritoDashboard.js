@@ -25,7 +25,6 @@ function DeleteFromCart(pos){
     currentCart.splice(pos,1)
     localStorage.cart = JSON.stringify(currentCart)
     crearCarrito();
-
 } 
 
 function createRow(product, posicion){
@@ -63,8 +62,8 @@ function crearCarrito(){
         tbodyCart.appendChild(createRow(prod, posicion))
         posicion++;
     })
-
 }
+
 window.addEventListener("load",function (){
     crearCarrito();
     getCart();

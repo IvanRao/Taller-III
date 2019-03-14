@@ -5,7 +5,7 @@ use controller\AuthController;
 use controller\FileControllerConsolas;
 
 $RestApi->get("/api/consolas/?",function($id){
-    //AuthController::validateAdmin();
+    AuthController::validateAdmin();
     return ConCnt::byId($id);
 });
 

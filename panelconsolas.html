@@ -26,6 +26,7 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/RestApi.js"></script>
         <script src="js/util.js"></script>
+        <script src="js/logout.js"></script>
         <script src="js/PanelConsolasDashboard.js"></script>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -61,8 +62,8 @@
                         <li data-not-logged-only>
                             <a href="login.html">Login</a>
                         </li>
-                        <li data-logged-only>
-                            <a href="logout.html">Cerrar Sesión</a>
+                        <li data-logged-only id="logout">
+                            <a href="">Cerrar Sesión</a>
                         </li>
                         <li class="dropdown" data-admin-only>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Panel<span class="caret"></span></a>
@@ -167,7 +168,7 @@
                 </div>
             </div>
         </div>
-        <footer style="background-color: black; padding: 3%; margin: 0; position: absolute; bottom: 0; left: 0; right: 0;">
+        <footer style="background-color: black; padding: 3%; margin: 0; position: fixed; bottom: 0; left: 0; right: 0;">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-md-6" style="text-align: center"> © GeekGames 2017</div>

@@ -12,7 +12,6 @@ class ConsolasController{
         return Consolas::all();
     }
 
-
     public static function byId($id){   
         return Consolas::byId($id);
     }

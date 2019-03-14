@@ -5,7 +5,7 @@ use controller\AuthController;
 use controller\FileController;
 
 $RestApi->get("/api/juegos/?",function($id){
-    //AuthController::validateAdmin();
+    AuthController::validateAdmin();
     return JgCnt::byId($id);
 });
 

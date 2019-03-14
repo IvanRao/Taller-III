@@ -60,10 +60,16 @@ function isAdmin(){
 
 window.addEventListener("load",()=>{
 
+    var pathname = window.location.pathname;
+
     if(!isAdmin()){
         $$("[data-admin-only]").forEach((elm) => {
             elm.parentNode.removeChild(elm)
         })
+    }
+
+    if(!isAdmin() && (pathname == "/paneljuegos.html" || pathname == "/panelconsolas.html")){
+        window.location = "login.html"
     }
 
     if(!isLogged()){
